@@ -1,0 +1,33 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!-- ViPadLinker — system-tray app for the ViPadLinker core.
+       One project over src/: Program.cs entry point, Mapping/ + Linking/
+       domain, Platform/ plumbing, Ui/ windows. Default globbing compiles
+       every .cs under src/ — new files need no csproj entry (bin/obj are
+       excluded automatically). -->
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net48</TargetFramework>
+    <AssemblyName>ViPadLinker</AssemblyName>
+    <RootNamespace>ViPadLinker</RootNamespace>
+    <Nullable>enable</Nullable>
+    <LangVersion>latest</LangVersion>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ApplicationIcon>..\assets\Icon.ico</ApplicationIcon>
+    <!-- PerMonitorV2 DPI awareness, embedded into the exe (no extra release file) -->
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Nefarius.ViGEm.Client" Version="1.21.256" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- UI chimes embedded in the exe; the Sound class (Platform/Sound.cs)
+         plays these and stays silent when absent.
+         Regenerate after edits with tools\Make-Sounds.ps1. -->
+    <EmbeddedResource Include="..\assets\sounds\connect.wav"    LogicalName="connect.wav" />
+    <EmbeddedResource Include="..\assets\sounds\disconnect.wav" LogicalName="disconnect.wav" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,28 @@
+# Build outputs
+bin/
+obj/
+
+# NuGet
+packages/
+*.nuget.dgspec.json
+*.nuget.g.props
+*.nuget.g.targets
+project.assets.json
+project.nuget.cache
+
+# IDE
+.vs/
+.vscode/
+*.suo
+*.user
+*.userosscache
+
+# Runtime files
+*.log
+mapping.ini
+ViPadLinker.exe
+ViPadLinker.exe.config
+
+# OS
+.DS_Store
+Thumbs.db
